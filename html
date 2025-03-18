@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Invitation Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f1e4;
+            overflow: hidden;
+        }
+        .card-container {
+            position: relative;
+            width: 800px;
+            height: 800px;
+        }
+        .card {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: #d2691e;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 2;
+            transition: transform 1s ease-in-out;
+        }
+        .overlay {
+            width: 800px;
+            height: 800px;
+            background: url('your-custom-card.jpg') no-repeat center/cover;
+            position: absolute;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(100%);
+            transition: transform 1s ease-in-out;
+            z-index: 1;
+        }
+        .card-container.open .overlay {
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        function revealCard() {
+            document.querySelector('.card-container').classList.toggle('open');
+        }
+    </script>
+</head>
+<body>
+    <div class="card-container" onclick="revealCard()">
+        <div class="card">Click to Open</div>
+        <div class="overlay"></div>
+    </div>
+</body>
+</html>
